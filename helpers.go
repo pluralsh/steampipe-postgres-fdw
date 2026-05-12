@@ -22,8 +22,9 @@ import (
 	"github.com/golang/protobuf/ptypes/timestamp"
 	"github.com/turbot/go-kit/helpers"
 	typeHelpers "github.com/turbot/go-kit/types"
-	"github.com/turbot/steampipe-postgres-fdw/v2/types"
 	"golang.org/x/exp/maps"
+
+	"github.com/pluralsh/steampipe-postgres-fdw/v2/types"
 )
 
 // CStringListToGoArray converts a C string list into a go array

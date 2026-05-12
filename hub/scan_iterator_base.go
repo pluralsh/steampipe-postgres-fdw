@@ -14,10 +14,11 @@ import (
 	"github.com/turbot/steampipe-plugin-sdk/v5/logging"
 	"github.com/turbot/steampipe-plugin-sdk/v5/row_stream"
 	"github.com/turbot/steampipe-plugin-sdk/v5/telemetry"
-	"github.com/turbot/steampipe-postgres-fdw/v2/types"
 	"github.com/turbot/steampipe/v2/pkg/query/queryresult"
 	"go.opentelemetry.io/otel/trace"
 	"google.golang.org/protobuf/reflect/protoreflect"
+
+	"github.com/pluralsh/steampipe-postgres-fdw/v2/types"
 )
 
 type scanIteratorBase struct {

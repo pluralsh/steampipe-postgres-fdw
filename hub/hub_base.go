@@ -11,8 +11,6 @@ import (
 	"github.com/turbot/steampipe-plugin-sdk/v5/grpc"
 	"github.com/turbot/steampipe-plugin-sdk/v5/grpc/proto"
 	"github.com/turbot/steampipe-plugin-sdk/v5/telemetry"
-	"github.com/turbot/steampipe-postgres-fdw/v2/settings"
-	"github.com/turbot/steampipe-postgres-fdw/v2/types"
 	"github.com/turbot/steampipe/v2/pkg/constants"
 	"github.com/turbot/steampipe/v2/pkg/query/queryresult"
 	"go.opentelemetry.io/otel"
@@ -20,6 +18,9 @@ import (
 	"go.opentelemetry.io/otel/metric"
 	"go.opentelemetry.io/otel/propagation"
 	"go.opentelemetry.io/otel/trace"
+
+	"github.com/pluralsh/steampipe-postgres-fdw/v2/settings"
+	"github.com/pluralsh/steampipe-postgres-fdw/v2/types"
 )
 
 type hubBase struct {

@@ -78,7 +78,7 @@ jobs:
       - name: Checkout FDW
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
-          repository: turbot/steampipe-postgres-fdw
+          repository: pluralsh/steampipe-postgres-fdw
           path: steampipe-postgres-fdw
           ref: ${{ github.event.ref }}
 
