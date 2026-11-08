@@ -9,15 +9,18 @@ GETTEXT_INCLUDE=$(shell dirname $(shell dirname $(shell readlink -f $(shell whic
 # Reassert security floors after provider resolution, which can rewrite work/go.mod.
 # Keep OpenTelemetry modules aligned to the same release.
 SECURITY_DEPENDENCY_FLOORS = \
-	google.golang.org/grpc@v1.83.1 \
+	google.golang.org/grpc@v1.83.2 \
 	golang.org/x/text@v0.41.0 \
-	golang.org/x/net@v0.57.0 \
-	golang.org/x/crypto@v0.56.0 \
+	golang.org/x/net@v0.62.0 \
+	golang.org/x/crypto@v0.58.1-0.20261009181718-2f1f834330b2 \
 	go.opentelemetry.io/otel@v1.45.0 \
 	go.opentelemetry.io/otel/metric@v1.45.0 \
 	go.opentelemetry.io/otel/trace@v1.45.0 \
 	go.opentelemetry.io/otel/sdk@v1.45.0 \
 	go.opentelemetry.io/otel/sdk/metric@v1.45.0 \
+	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc@v1.45.0 \
+	go.opentelemetry.io/otel/exporters/otlp/otlptrace@v1.45.0 \
+	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc@v1.45.0 \
 	github.com/go-jose/go-jose/v4@v4.1.6 \
 	github.com/go-git/go-git/v5@v5.19.2
 
