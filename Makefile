@@ -10,7 +10,7 @@ GETTEXT_INCLUDE=$(shell dirname $(shell dirname $(shell readlink -f $(shell whic
 # Keep OpenTelemetry modules aligned to the same release.
 SECURITY_DEPENDENCY_FLOORS = \
 	google.golang.org/grpc@v1.83.2 \
-	golang.org/x/text@v0.41.0 \
+	golang.org/x/text@v0.43.0 \
 	golang.org/x/net@v0.62.0 \
 	golang.org/x/crypto@v0.58.1-0.20261009181718-2f1f834330b2 \
 	go.opentelemetry.io/otel@v1.45.0 \
