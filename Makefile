@@ -6,6 +6,21 @@ STEAMPIPE_INSTALL_DIR ?= ~/.steampipe
 PLATFORM=$(shell uname)
 GETTEXT_INCLUDE=$(shell dirname $(shell dirname $(shell readlink -f $(shell which gettext))))/include
 
+# Reassert security floors after provider resolution, which can rewrite work/go.mod.
+# Keep OpenTelemetry modules aligned to the same release.
+SECURITY_DEPENDENCY_FLOORS = \
+	google.golang.org/grpc@v1.83.1 \
+	golang.org/x/text@v0.41.0 \
+	golang.org/x/net@v0.57.0 \
+	golang.org/x/crypto@v0.56.0 \
+	go.opentelemetry.io/otel@v1.45.0 \
+	go.opentelemetry.io/otel/metric@v1.45.0 \
+	go.opentelemetry.io/otel/trace@v1.45.0 \
+	go.opentelemetry.io/otel/sdk@v1.45.0 \
+	go.opentelemetry.io/otel/sdk/metric@v1.45.0 \
+	github.com/go-jose/go-jose/v4@v4.1.6 \
+	github.com/go-git/go-git/v5@v5.19.2
+
 install: build
 	if test -d ~/.steampipe/db/14.17.0; then \
 		cp ./build-$(PLATFORM)/steampipe_postgres_fdw--1.0.sql $(STEAMPIPE_INSTALL_DIR)/db/14.17.0/postgres/share/postgresql/extension/; \
@@ -37,6 +52,7 @@ standalone: validate_plugin validate_version prebuild.go
 			go get $(plugin_github_url)/$$MAJOR_VERSION@$(plugin_version); \
 		fi; \
 	fi && \
+	go get $(SECURITY_DEPENDENCY_FLOORS) && \
 	go mod tidy && \
 	$(MAKE) -C ./fdw clean && \
 	$(MAKE) -C ./fdw go && \
@@ -76,6 +92,7 @@ render: validate_plugin validate_version prebuild.go
 			go get $(plugin_github_url)/$$MAJOR_VERSION@$(plugin_version); \
 		fi; \
 	fi && \
+	go get $(SECURITY_DEPENDENCY_FLOORS) && \
 	go mod tidy
 
 	# Note: The work directory will contain the full code tree with rendered changes
