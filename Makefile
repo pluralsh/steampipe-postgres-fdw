@@ -22,7 +22,8 @@ SECURITY_DEPENDENCY_FLOORS = \
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace@v1.45.0 \
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc@v1.45.0 \
 	github.com/go-jose/go-jose/v4@v4.1.6 \
-	github.com/go-git/go-git/v5@v5.19.2
+	github.com/go-git/go-git/v5@v5.19.2 \
+	github.com/klauspost/compress@v1.18.7
 
 install: build
 	if test -d ~/.steampipe/db/14.17.0; then \
